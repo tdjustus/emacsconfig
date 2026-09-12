@@ -79,7 +79,7 @@
 (after! org
   (add-to-list 'org-export-backends 'md))
 
-;; enable org-modern-mode y default
+;; enable org-modern-mode by default
 (use-package! org-modern
   :hook (org-mode . org-modern-mode))
 

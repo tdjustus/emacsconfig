@@ -1,0 +1,4 @@
+#+title: emacsconfig
+
+* Purpose
+This is my personal Doom Emacs config baseline.
