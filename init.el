@@ -197,30 +197,5 @@
        ;;(rss +org)        ; emacs as an RSS reader
 
        :config
-       ;;literate
+       literate
        (default +bindings +smartparens))
-
-;; automatically use org-modern-mode
-(add-hook 'org-mode-hook #'org-modern-mode)
-
-; set default size
-(add-to-list 'default-frame-alist '(width . 200))
-(add-to-list 'default-frame-alist '(height . 60))
-
-;; set default directory path
-(setq default-directory-path "~/")
-
-;; force the default directory
-(cd default-directory-path)
-
-;; force projectile default directory
-(after! projectile
-  (setq projectile-project-path default-directory-path ))
-
-;; set ghostel shell
-(setq ghostel-shell "pwsh")
-
-;; force the pwsh command for ob-powershell
-(after! org
-  (setq org-babel-powershell-command "pwsh")
-  (defvar org-babel-command:powershell "pwsh"))

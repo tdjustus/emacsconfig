@@ -1,0 +1,76 @@
+#+title: My Doom Emacs Config
+#+author: Tim Justus
+#+description: This is my personal Doom Emacs config shared across my devices.
+
+* config.el
+:properties:
+:header-args:elisp: :tangle config.el
+:end:
+
+** Theme
+#+begin_src elisp
+(setq doom-theme 'modus-operandi)
+#+end_src
+
+** Line Numbers
+#+begin_src elisp
+(setq display-line-numbers-type t)
+#+end_src
+
+** Org Setings
+#+begin_src elisp
+(setq org-directory "~/org/")
+
+;; enable markdown exports
+(after! org
+  (add-to-list 'org-export-backends 'md))
+
+;; enable org-modern
+(use-package! org-modern
+  :hook (org-mode . org-modern-mode))
+
+;; always use org-modern
+(add-hook 'org-mode-hook #'org-modern-mode)
+#+end_src
+
+** Additional Language Modes
+#+begin_src elisp
+(use-package! kql-mode)
+(use-package! bicep-mode)
+#+end_src
+
+** Default Window Size
+#+begin_src elisp
+(add-to-list 'default-frame-alist '(width . 200))
+(add-to-list 'default-frame-alist '(height . 60))
+#+end_src
+
+** Default Directory
+#+begin_src elisp
+(setq-hook! '++doom-dashboard-mode-hook default-directory "~/")
+#+end_src
+
+** PowerShell
+#+begin_src elisp
+(setq ghostel-shell "pwsh")
+(after! org
+  (setq org-babel-powershell-command "pwsh")
+  (defvar org-babel-command:powershell "pwsh"))
+#+end_src
+
+* packages.el
+:properties:
+:header-args:elisp: :tangle packages.el
+:end:
+
+** Extra Packages
+#+begin_src elisp
+(package! org-modern)
+(package! powershell)
+(package! kql-mode
+  :recipe (:host github :repo "emacsmirror/kql-mode"))
+(package! bicep-mode
+  :recipe (:host github :repo "christiaan-janssen/bicep-mode"))
+(package! ob-powershell
+  :recipe (:host github :repo "rkiggen/ob-powershell"))
+#+end_src
