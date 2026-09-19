@@ -1,4 +1,5 @@
-#+title: emacsconfig
+#+title: My Emacs Config
+#+author: Tim Justus
+#+description: My literate Emacs config
 
-* Purpose
-This is my personal Doom Emacs config baseline.
+This is my literate Emacs config. It is a work in progress as I learn more about the amazing world of Emacs.
