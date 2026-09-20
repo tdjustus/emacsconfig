@@ -31,6 +31,10 @@
 
 ;; always use org-modern
 (add-hook 'org-mode-hook #'org-modern-mode)
+
+;; load ox-gfm
+(eval-after-load "org"
+  '(require 'ox-gfm nil t))
 #+end_src
 
 ** Additional Language Modes
@@ -52,7 +56,9 @@
 
 ** PowerShell
 #+begin_src elisp
-(setq ghostel-shell "pwsh")
+;; use powershell instead of cmd on windows
+(if (featurep :system 'windows)
+  (setq ghostel-shell "pwsh"))
 (after! org
   (setq org-babel-powershell-command "pwsh")
   (defvar org-babel-command:powershell "pwsh"))
@@ -73,4 +79,6 @@
   :recipe (:host github :repo "christiaan-janssen/bicep-mode"))
 (package! ob-powershell
   :recipe (:host github :repo "rkiggen/ob-powershell"))
+(package! ox-gfm
+  :recipe (:host github :repo "larstvei/ox-gfm"))
 #+end_src
