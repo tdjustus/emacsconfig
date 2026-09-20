@@ -15,6 +15,10 @@
 ;; always use org-modern
 (add-hook 'org-mode-hook #'org-modern-mode)
 
+;; load ox-gfm
+(eval-after-load "org"
+  '(require 'ox-gfm nil t))
+
 (use-package! kql-mode)
 (use-package! bicep-mode)
 
@@ -23,7 +27,9 @@
 
 (setq-hook! '++doom-dashboard-mode-hook default-directory "~/")
 
-(setq ghostel-shell "pwsh")
+;; use powershell instead of cmd on windows
+(if (featurep :system 'windows)
+  (setq ghostel-shell "pwsh"))
 (after! org
   (setq org-babel-powershell-command "pwsh")
   (defvar org-babel-command:powershell "pwsh"))
