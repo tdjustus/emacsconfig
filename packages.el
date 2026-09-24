@@ -8,3 +8,5 @@
   :recipe (:host github :repo "rkiggen/ob-powershell"))
 (package! ox-gfm
   :recipe (:host github :repo "larstvei/ox-gfm"))
+(package! claude-code-ide
+  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))

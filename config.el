@@ -33,3 +33,11 @@
 (after! org
   (setq org-babel-powershell-command "pwsh")
   (defvar org-babel-command:powershell "pwsh"))
+
+(use-package! claude-code-ide
+  :config
+  (map! :leader "c '" #'claude-code-ide-menu)
+  (claude-code-ide-emacs-tools-setup))
+
+(after! treemacs
+  (treemacs-project-follow-mode 1))

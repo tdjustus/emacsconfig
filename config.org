@@ -64,6 +64,20 @@
   (defvar org-babel-command:powershell "pwsh"))
 #+end_src
 
+** Claude Code IDE
+#+begin_src elisp
+(use-package! claude-code-ide
+  :config
+  (map! :leader "c '" #'claude-code-ide-menu)
+  (claude-code-ide-emacs-tools-setup))
+#+end_src
+
+** Treemacs Follow Project Mode
+#+begin_src elisp
+(after! treemacs
+  (treemacs-project-follow-mode 1))
+#+end_src
+
 * packages.el
 :properties:
 :header-args:elisp: :tangle packages.el
@@ -81,4 +95,6 @@
   :recipe (:host github :repo "rkiggen/ob-powershell"))
 (package! ox-gfm
   :recipe (:host github :repo "larstvei/ox-gfm"))
+(package! claude-code-ide
+  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
 #+end_src
